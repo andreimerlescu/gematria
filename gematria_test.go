@@ -112,12 +112,12 @@ func TestFromString(t *testing.T) {
 				in: "i love yahuah",
 			},
 			wantOut: Gematria{
-				Jewish:   0,
-				English:  0,
-				Simple:   0,
-				Mystery:  0,
-				Majestic: 0,
-				Eights:   0,
+				Jewish:   1402,
+				English:  762,
+				Simple:   127,
+				Mystery:  3676,
+				Majestic: 381,
+				Eights:   889,
 			},
 		},
 	}

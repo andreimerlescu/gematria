@@ -1,15 +1,15 @@
 # Gematria
 
-This package provides you the ability to transform a string into 3 numbers called Gematria. The three numbers are: 
+This package provides you the ability to transform a string into 6 numbers called Gematria. The three numbers are: 
 
 | Kind                | Example String | Example Score |
 |---------------------|----------------|---------------|
-| `GemScore.English`  | `Andrei`       | `306`         |
-| `GemScore.Jewish`   | `Andrei`       | `139`         |
-| `GemScore.Simple`   | `Andrei`       | `51`          |
-| `GemScore.Mystery`  | `Andrei`       | `2264`        |
-| `GemScore.Majestic` | `Andrei`       | `153`         | 
-| `GemScore.Eights`   | `Andrei`       | `338`         | 
+| `Gematria.English`  | `Andrei`       | `306`         |
+| `Gematria.Jewish`   | `Andrei`       | `139`         |
+| `Gematria.Simple`   | `Andrei`       | `51`          |
+| `Gematria.Mystery`  | `Andrei`       | `2264`        |
+| `Gematria.Majestic` | `Andrei`       | `153`         | 
+| `Gematria.Eights`   | `Andrei`       | `338`         | 
 
 When tools like [Gematrix.org](https://gematrix.org?utm_source=projectapario&word=andrei) are used they return
 interesting results that share the similar scores with their results. For example: 
@@ -72,13 +72,13 @@ package main
 
 import (
 	"fmt"
-	gematria "github.com/andreimerlescu/gematria"
+	"github.com/andreimerlescu/gematria"
 )
 
 func main(){
-	name := "Andrei"
-	gematria_score := gematria.NewGemScore(name)
-	fmt.Printf("name = %v ; gematria = %v", name, gematria_score)
+	name := "yah i love yahuah and yah i am saint andrei"
+	gematria := gematria.FromString(name)
+	fmt.Printf("name = %v ; gematria = %v", name, gematria)
 }
 ```
 
@@ -87,6 +87,19 @@ func main(){
 This package has no dependencies and will not require to be updated in the future given that Gematria is effectively
 a constant as unchangeable as the value of Pi. Therefore, the long term utilization of this package can safely be 
 integrated into many types of projects.
+
+# Additional Ciphers Added
+
+The **EIGHTS** Cipher is a new addition to the __Gematria__ package. A begins at 3, B is 5, when combined AB you get 
+3+5=8 which is C. Then D is 16 and it increases by 8 until Z.
+
+The **MYSTERY** Cipher is a new addition to the __Gematria__ package. When developing this package, I asked the spirit
+to guide me and the numbers I chose was the numbers I chose. They are indeed a mystery. 
+
+The **MAJESTIC** Cipher is a new addition to the __Gematria__ package. Starting at 3, incrementing by 3, it gets 
+to Z with a value of 78 (3*26 letters). JKR is 30 33 54 which simplifies to 999. JFK 30 18 33 which simplifies to 999.
+Therefore JKR === JFK in the **MAJESTIC** _UNDERSTANDING_ of what these numbers actually mean. Nikola Tesla understood
+it, and its worthy of me to program the ciphers using these numbers. They are worthy of studying too.
 
 # Contribution
 
