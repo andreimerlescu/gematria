@@ -1,4 +1,4 @@
-package go_gematria
+package gematria
 
 import (
 	"reflect"
@@ -20,9 +20,12 @@ func TestNewGemScore(t *testing.T) {
 				data: "andrei",
 			},
 			want: Gematria{
-				Jewish:  139,
-				English: 306,
-				Simple:  51,
+				Jewish:   139,
+				English:  306,
+				Simple:   51,
+				Mystery:  2264,
+				Majestic: 153,
+				Eights:   338,
 			},
 		},
 		{
@@ -31,9 +34,12 @@ func TestNewGemScore(t *testing.T) {
 				data: "manifesting three six nine",
 			},
 			want: Gematria{
-				Jewish:  1028,
-				English: 1602,
-				Simple:  267,
+				Jewish:   1028,
+				English:  1602,
+				Simple:   267,
+				Mystery:  10668,
+				Majestic: 801,
+				Eights:   1861,
 			},
 		},
 		{
@@ -42,9 +48,12 @@ func TestNewGemScore(t *testing.T) {
 				data: "Jesus Christ Prince of Peace",
 			},
 			want: Gematria{
-				Jewish:  1602,
-				English: 1602,
-				Simple:  267,
+				Jewish:   1602,
+				English:  1602,
+				Simple:   267,
+				Mystery:  10296,
+				Majestic: 799,
+				Eights:   1828,
 			},
 		},
 	}
@@ -83,6 +92,39 @@ func BenchmarkNewGemScore(b *testing.B) {
 		b.Run(bm.name, func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				_, _ = NewGematria(bm.data)
+			}
+		})
+	}
+}
+
+func TestFromString(t *testing.T) {
+	type args struct {
+		in string
+	}
+	tests := []struct {
+		name    string
+		args    args
+		wantOut Gematria
+	}{
+		{
+			name: "test one",
+			args: args{
+				in: "i love yahuah",
+			},
+			wantOut: Gematria{
+				Jewish:   0,
+				English:  0,
+				Simple:   0,
+				Mystery:  0,
+				Majestic: 0,
+				Eights:   0,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotOut := FromString(tt.args.in); !reflect.DeepEqual(gotOut, tt.wantOut) {
+				t.Errorf("FromString() = %v, want %v", gotOut, tt.wantOut)
 			}
 		})
 	}

@@ -1,6 +1,45 @@
-package go_gematria
+package gematria
 
 var (
+	eightsCodes = ResultMap{
+		"A": 3, "B": 5, "C": 8, "D": 16, "E": 32, "F": 40,
+		"G": 48, "H": 54, "I": 63, "J": 69, "K": 77, "L": 80,
+		"M": 88, "N": 96, "O": 104, "P": 112, "Q": 120, "R": 128,
+		"S": 136, "T": 144, "U": 152, "V": 160, "W": 168, "X": 176,
+		"Y": 184, "Z": 192,
+		// Lowercase equivalents
+		"a": 3, "b": 5, "c": 8, "d": 16, "e": 15, "f": 40,
+		"g": 48, "h": 54, "i": 63, "j": 69, "k": 77, "l": 80,
+		"m": 88, "n": 96, "o": 104, "p": 112, "q": 120, "r": 128,
+		"s": 136, "t": 144, "u": 152, "v": 160, "w": 168, "x": 176,
+		"y": 184, "z": 192,
+	}
+	majesticCodes = ResultMap{
+		"A": 3, "B": 6, "C": 9, "D": 12, "E": 15, "F": 18,
+		"G": 21, "H": 24, "I": 27, "J": 30, "K": 33, "L": 36,
+		"M": 39, "N": 42, "O": 45, "P": 47, "Q": 51, "R": 54,
+		"S": 57, "T": 60, "U": 63, "V": 66, "W": 69, "X": 72,
+		"Y": 75, "Z": 78,
+		// Lowercase equivalents
+		"a": 3, "b": 6, "c": 9, "d": 12, "e": 15, "f": 18,
+		"g": 21, "h": 24, "i": 27, "j": 30, "k": 33, "l": 36,
+		"m": 39, "n": 42, "o": 45, "p": 47, "q": 51, "r": 54,
+		"s": 57, "t": 60, "u": 63, "v": 66, "w": 69, "x": 72,
+		"y": 75, "z": 78,
+	}
+	mysteryCodes = ResultMap{
+		"A": 369, "B": 3, "C": 144, "D": 6, "E": 17, "F": 9,
+		"G": 22, "H": 222, "I": 333, "J": 300, "K": 666, "L": 600,
+		"M": 963, "N": 900, "O": 45, "P": 47, "Q": 1776, "R": 639,
+		"S": 1618, "T": 60, "U": 999, "V": 434, "W": 99, "X": 88,
+		"Y": 66, "Z": 33,
+		// Lowercase equivalents
+		"a": 369, "b": 3, "c": 144, "d": 12, "e": 17, "f": 9,
+		"g": 22, "h": 222, "i": 333, "j": 300, "k": 666, "l": 600,
+		"m": 963, "n": 900, "o": 45, "p": 47, "q": 1776, "r": 639,
+		"s": 1618, "t": 66, "u": 999, "v": 434, "w": 99, "x": 88,
+		"y": 66, "z": 33,
+	}
 	jewishCodes = ResultMap{
 		"A": 1, "B": 2, "C": 3, "D": 4, "E": 5, "F": 6,
 		"G": 7, "H": 8, "I": 9, "J": 600, "K": 10, "L": 20,
@@ -44,10 +83,13 @@ var (
 	}
 )
 
-type ResultMap map[string]uint
+type ResultMap map[string]uint64
 
 type Gematria struct {
-	Jewish  uint `json:"j"`
-	English uint `json:"e"`
-	Simple  uint `json:"s"`
+	Jewish   uint64 `json:"jew"`
+	English  uint64 `json:"eng"`
+	Simple   uint64 `json:"sim"`
+	Mystery  uint64 `json:"mys"`
+	Majestic uint64 `json:"maj"`
+	Eights   uint64 `json:"eig"`
 }
