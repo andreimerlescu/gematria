@@ -6,8 +6,10 @@ import (
 	"strings"
 )
 
+// ComboType is a string for the name of the flavor of Gematria you're displaying as a uint64
 type ComboType string
 
+// define the combination types for Gematria
 const (
 	CT_S      ComboType = "simple"
 	CT_J      ComboType = "jewish"
@@ -43,6 +45,72 @@ const (
 	CT_MJMYEI ComboType = "majestic mystery eights"
 )
 
+// ComboTypes returns a slice of ComboType that has all supported combinations by the package
+func ComboTypes() []ComboType {
+	return []ComboType{
+		CT_S, CT_E, CT_J,
+		CT_MY, CT_MJ, CT_EI, CT_SJ,
+		CT_SE, CT_SMY, CT_SMJ, CT_SEI, CT_JE,
+		CT_JMY, CT_JMJ, CT_JEI, CT_MYMJ, CT_MYEI, CT_EIMJ,
+		CT_SJE, CT_SJMY, CT_SJMJ, CT_SJEI, CT_SEMY, CT_SEMJ,
+		CT_SEEI, CT_JEMY, CT_JEMJ, CT_JEEI, CT_EMYMJ, CT_EMYEI,
+		CT_EMJEI, CT_MJMYEI,
+	}
+}
+
+// Types returns a slice of the Gematria keys as strings
+func Types() []string {
+	return []string{
+		"simple", "jewish", "english",
+		"majestic", "mystery", "eights",
+	}
+}
+
+// Combine accepts multiple uint64 values and merges them like the Gematria.Combine method does
+func Combine(in ...uint64) (uint64, error) {
+	sb := strings.Builder{}
+	for _, i := range in {
+		sb.WriteString(strconv.FormatUint(i, 10))
+	}
+	return strconv.ParseUint(sb.String(), 10, 64)
+}
+
+// Combine reads multiple ComboType fields and concatenates the digits then converts to uint64
+// otherwise 0 is returned
+func (s Gematria) Combine(fields ...ComboType) (uint64, error) {
+	sb := strings.Builder{}
+	for _, field := range fields {
+		switch field {
+		case CT_S:
+			sb.WriteString(strconv.FormatUint(s.Simple, 10))
+		case CT_E:
+			sb.WriteString(strconv.FormatUint(s.English, 10))
+		case CT_J:
+			sb.WriteString(strconv.FormatUint(s.Jewish, 10))
+		case CT_MY:
+			sb.WriteString(strconv.FormatUint(s.Mystery, 10))
+		case CT_MJ:
+			sb.WriteString(strconv.FormatUint(s.Majestic, 10))
+		case CT_EI:
+			sb.WriteString(strconv.FormatUint(s.Eights, 10))
+		}
+	}
+	return strconv.ParseUint(sb.String(), 10, 64)
+}
+
+// SimplifyWithError accepts a uint64, error combo and performs Simplify on it or returns 0 for an error
+func SimplifyWithError(in uint64, err error) (out uint64, e error) {
+	if err != nil {
+		return 0, err
+	}
+	out, e = Simplify(in)
+	if e != nil {
+		return 0, e
+	}
+	return out, nil
+}
+
+// MajesticGematria - TODO - Update this function later to be more majestic than just an (out uint64)
 func MajesticGematria(in Gematria, choices ...ComboType) (out uint64) {
 	for _, choice := range choices {
 		c := strings.Clone(string(choice))

@@ -45,15 +45,15 @@ interesting results that share the similar scores with their results. For exampl
 | Simple | 306   | Micheal        |
 | Simple | 306   | Elite          |
 
-The word `Andrei` in Gematria is expressed as English `Michael`. The Jewish expression of `Andrei` is the `Golden Age`. 
-I am building multi-generational wealth and these utilities are part of how I am doing that. You can either program or
-be programmed, and I choose to program. Go is such a powerful programming language because of the memetics that it 
-natively supports programmers to use. 
+The word `Andrei` in Gematria is expressed as English `Michael`. The Jewish expression of `Andrei` is 
+the `Golden Age`. I am building multi-generational wealth and these utilities are part of how I am 
+doing that. You can either program or  be programmed, and I choose to program. Go is such a powerful 
+programming language because of the memetics that it  natively supports programmers to use. 
 
-Religious scholars have used Gematria as a mechanism for seeing relationships between words. Their relationships are
-the numbers that they share in common with each other. Those numbers are governed by the laws of 3 6 and 9. The 
-power of 3 6 and 9 is very real and you are encouraged to use it. Therefore, this package was created... so that you
-may use it.
+Religious scholars have used Gematria as a mechanism for seeing relationships between words. Their 
+relationships are the numbers that they share in common with each other. Those numbers are governed 
+by the laws of 3 6 and 9. The power of 3 6 and 9 is very real and you are encouraged to use it. 
+Therefore, this package was created... so that you may use it.
 
 # Package Installation
 
@@ -82,24 +82,30 @@ func main(){
 }
 ```
 
+# Error Handling
+
+In gematria, errors like overflow or invalid input are nullified by returning 0, reflecting the 
+numerological principle of harmony over disruption.
+
 # Future Proof
 
-This package has no dependencies and will not require to be updated in the future given that Gematria is effectively
-a constant as unchangeable as the value of Pi. Therefore, the long term utilization of this package can safely be 
-integrated into many types of projects.
+This package has no dependencies and will not require to be updated in the future given that Gematria 
+is effectively  a constant as unchangeable as the value of Pi. Therefore, the long term utilization of 
+this package can safely be integrated into many types of projects.
 
 # Additional Ciphers Added
 
-The **EIGHTS** Cipher is a new addition to the __Gematria__ package. A begins at 3, B is 5, when combined AB you get 
-3+5=8 which is C. Then D is 16 and it increases by 8 until Z.
+The **EIGHTS** Cipher is a new addition to the __Gematria__ package. A begins at 3, B is 5, when combined 
+AB you get  3+5=8 which is C. Then D is 16 and it increases by 8 until Z.
 
-The **MYSTERY** Cipher is a new addition to the __Gematria__ package. When developing this package, I asked the spirit
-to guide me and the numbers I chose was the numbers I chose. They are indeed a mystery. 
+The **MYSTERY** Cipher is a new addition to the __Gematria__ package. When developing this package, I asked 
+the spirit  to guide me and the numbers I chose was the numbers I chose. They are indeed a mystery. 
 
-The **MAJESTIC** Cipher is a new addition to the __Gematria__ package. Starting at 3, incrementing by 3, it gets 
-to Z with a value of 78 (3*26 letters). JKR is 30 33 54 which simplifies to 999. JFK 30 18 33 which simplifies to 999.
-Therefore JKR === JFK in the **MAJESTIC** _UNDERSTANDING_ of what these numbers actually mean. Nikola Tesla understood
-it, and its worthy of me to program the ciphers using these numbers. They are worthy of studying too.
+The **MAJESTIC** Cipher is a new addition to the __Gematria__ package. Starting at 3, incrementing by 3, 
+it gets  to Z with a value of 78 (3*26 letters). JKR is 30 33 54 which simplifies to 999. JFK 30 18 33 
+which simplifies to 999.  Therefore JKR === JFK in the **MAJESTIC** _UNDERSTANDING_ of what these numbers 
+actually mean. Nikola Tesla understood  it, and its worthy of me to program the ciphers using these numbers. 
+They are worthy of studying too.
 
 # Contribution
 
