@@ -115,3 +115,22 @@ fn compute_table(input: &str, table: &HashMap<char, u64>) -> u64 {
         .map(|c| *table.get(&c).unwrap_or(&0))
         .sum()
 }
+
+// tests live at the bottom of the same file in Rust
+// #[cfg(test)] means this block is compiled only when running cargo test
+#[cfg(test)]
+mod tests {
+    use super::*; // brings everything above into scope
+
+    #[test]
+    fn andrei_equals_306() {
+        let result = calculate("andrei");
+        assert_eq!(result.english, 306);
+    }
+
+    #[test]
+    fn michael_equals_306() {
+        let result = calculate("michael");
+        assert_eq!(result.english, 306);
+    }
+}
